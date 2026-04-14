@@ -24,112 +24,73 @@ class Question {
         System.out.println(option3);
         System.out.println(option4);
     }
-
 }
 
 class QuizManager {
-    
 
-        void quick(){
-
-        
+    void quick() {
 
         Scanner sc = new Scanner(System.in);
-        
-        Question q1 = new Question("Q1: What is Java?", "a) Programming Language", "b) Indian Language", "c) Game",
-                "d) Application", 'a');
-        Question q2 = new Question("Q2: Who developed Java?", "a) Microsoft", "b) Sun Microsystems", "c) Google",
-                "d) Apple", 'b');
-        Question q3 = new Question("Q3: What is OOP?", "a) Object Oriented Programming", "b) Open Operating Platform",
-                "c) Output Operation Process", "d) None", 'a');
+
+        Question q1 = new Question(
+                "Q1: What is Java?",
+                "a) Programming Language",
+                "b) Indian Language",
+                "c) Game",
+                "d) Application",
+                'a');
+
+        Question q2 = new Question(
+                "Q2: Who developed Java?",
+                "a) Microsoft",
+                "b) Sun Microsystems",
+                "c) Google",
+                "d) Apple",
+                'b');
+
+        Question q3 = new Question(
+                "Q3: What is OOP?",
+                "a) Object Oriented Programming",
+                "b) Open Operating Platform",
+                "c) Output Operation Process",
+                "d) None",
+                'a');
+
+        Question arr[] = { q1, q2, q3 };
 
         int score = 0;
 
-         char arr[]={Question.q1,Question.q2,Question.q3}; 
-         for(int i = 0; i< arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
+
             System.out.println();
+            arr[i].display();
 
-         }
+            char userAns = sc.next().charAt(0);
 
-        for (int i = 1; i <= 3; i++) {
-            if (i == 1) {
-                q1.display();
-
+            if (userAns == arr[i].ans) {
+                System.out.println("Correct");
+                score++;
+            } else {
+                System.out.println("Incorrect");
             }
-
-            if (i == 2) {
-                q2.display();
-            }
-            if (i == 3) {
-                q3.display();
-            }
-
-            char ans1 = sc.next().charAt(0);
-
-            switch (i) {
-
-                case 1:
-                    if (ans1 == q1.ans) {
-                        System.out.println("Correct.");
-                        System.out.println(" ");
-                        score++;
-
-                    } else {
-                        System.out.println("Incorrect !");
-                        System.out.println(" ");
-
-                    }
-
-                    break;
-                case 2:
-                    if (ans1 == q2.ans) {
-                        System.out.println("Correct.");
-                        System.out.println(" ");
-                        score++;
-
-                    } else {
-                        System.out.println("Incorrect !");
-                        System.out.println(" ");
-
-                    }
-                    break;
-                case 3:
-                    if (ans1 == q3.ans) {
-                        System.out.println("Correct.");
-                        System.out.println(" ");
-                        score++;
-
-                    } else {
-                        System.out.println("Incorrect !");
-                        System.out.println(" ");
-
-                    }
-
-                    break;
-
-                default:
-                    break;
-            }
-
         }
-        System.out.println("Score = " + score + "/3");
-        System.out.println("Percentage = ");
+
+        System.out.println();
+        System.out.println("Score = " + score + "/" + arr.length);
+
+        double percentage = (score * 100.0) / arr.length;
+        System.out.println("Percentage = " + percentage + "%");
     }
 }
 
 public class OnlineQuizApp {
     public static void main(String[] args) {
 
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
+        System.out.println();
         System.out.println("-------------------Quiz Start------------------");
-        System.out.println(" ");
-        System.out.println(" ");
+        System.out.println();
 
         QuizManager q = new QuizManager();
         q.quick();
-
-        
     }
 }
