@@ -2,10 +2,7 @@ import java.util.*;
 
 class Question {
     String Q;
-    String option1;
-    String option2;
-    String option3;
-    String option4;
+    String option1, option2, option3, option4;
     char ans;
 
     Question(String Q, String option1, String option2, String option3, String option4, char ans) {
@@ -23,6 +20,10 @@ class Question {
         System.out.println(option2);
         System.out.println(option3);
         System.out.println(option4);
+    }
+
+    boolean checkAnswer(char userAns) {
+        return userAns == ans;
     }
 }
 
