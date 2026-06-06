@@ -54,10 +54,10 @@ class QuizManager {
             char userAns = sc.next().charAt(0);
 
             if (q.checkAnswer(userAns)) {
-                System.out.println("✅ Correct!\n");
+                System.out.println("Correct!\n");
                 score++;
             } else {
-                System.out.println("❌ Incorrect!\n");
+                System.out.println(" Incorrect!\n");
             }
         }
 
