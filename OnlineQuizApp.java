@@ -28,61 +28,37 @@ class Question {
 }
 
 class QuizManager {
-
     void quick() {
-
         Scanner sc = new Scanner(System.in);
 
-        Question q1 = new Question(
-                "Q1: What is Java?",
-                "a) Programming Language",
-                "b) Indian Language",
-                "c) Game",
-                "d) Application",
-                'a');
-
-        Question q2 = new Question(
-                "Q2: Who developed Java?",
-                "a) Microsoft",
-                "b) Sun Microsystems",
-                "c) Google",
-                "d) Apple",
-                'b');
-
-        Question q3 = new Question(
-                "Q3: What is OOP?",
-                "a) Object Oriented Programming",
-                "b) Open Operating Platform",
-                "c) Output Operation Process",
-                "d) None",
-                'a');
-
-        Question arr[] = { q1, q2, q3 };
+        Question[] arr = {
+            new Question("Q1: What is Java?", "a) Programming Language", "b) Indian Language", "c) Game", "d) Application", 'a'),
+            new Question("Q2: Who developed Java?", "a) Microsoft", "b) Sun Microsystems", "c) Google", "d) Apple", 'b'),
+            new Question("Q3: What is OOP?", "a) Object Oriented Programming", "b) Open Operating Platform", "c) Output Operation Process", "d) None", 'a')
+        };
 
         int score = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-
+        for (Question q : arr) {
             System.out.println();
-            arr[i].display();
-
+            q.display();
+            System.out.print("Your answer: ");
             char userAns = sc.next().charAt(0);
 
-            if (userAns == arr[i].ans) {
-                System.out.println("Correct");
+            if (q.checkAnswer(userAns)) {
+                System.out.println("✅ Correct!\n");
                 score++;
             } else {
-                System.out.println("Incorrect");
+                System.out.println("❌ Incorrect!\n");
             }
         }
 
-        System.out.println();
-        System.out.println("Score = " + score + "/" + arr.length);
-
+        System.out.println("Final Score = " + score + "/" + arr.length);
         double percentage = (score * 100.0) / arr.length;
         System.out.println("Percentage = " + percentage + "%");
     }
 }
+
 
 public class OnlineQuizApp {
     public static void main(String[] args) {
